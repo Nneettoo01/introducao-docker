@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: docker-introducao-db
+    environment:
+      POSTGRES_USER: dockeruser
+      POSTGRES_PASSWORD: dockerpassword
+      POSTGRES_DB: dockerdb
+    ports:
+      - '5433:5432'
