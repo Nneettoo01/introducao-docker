@@ -6,11 +6,15 @@ import { Produtos } from '.prisma/client/default';
 
 @Injectable()
 export class ProdutoService {
-    constructor(private prisma: PrismaService) {}
+    constructor(private prisma: PrismaService) { }
 
     async create(data: Prisma.ProdutosCreateInput): Promise<Produtos> {
         return this.prisma.produtos.create({
             data,
         });
+    }
+
+    async findAll() {
+        return this.prisma.produtos.findMany();
     }
 }
