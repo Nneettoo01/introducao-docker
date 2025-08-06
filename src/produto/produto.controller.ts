@@ -1,7 +1,8 @@
-import { Controller, Post, Body, Get, Param } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Put } from '@nestjs/common';
 import { ProdutoService } from './produto.service';
 import { CreateProdutoDto } from './dto/create-product.dto';
 import { ApiOperation } from '@nestjs/swagger';
+import { UpdateProdutoDto } from './dto/update-product.dto';
 @Controller('product')
 export class ProdutoController {
 
@@ -25,5 +26,11 @@ export class ProdutoController {
     @Get(':id')
     findProductId(@Param('id') id: number) {
         return this.produtoService.findId(id);
+    }
+
+    @ApiOperation({ summary: 'Atualizar produto por ID' })
+    @Put(':id')
+    updateProduct(@Param('id') id: number, @Body() data: UpdateProdutoDto) {
+        return this.produtoService.update(id, data)
     }
 }
