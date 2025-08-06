@@ -18,7 +18,13 @@ model Produtos {
   name        String
   description String
   price       Float
-  category    String
+  category    Categoria
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+enum Categoria {
+  ELETRONICOS
+  ROUPAS
+  ALIMENTOS
 }

@@ -30,4 +30,11 @@ export class ProdutoService {
             data,
         });
     }
+
+
+    async delete(id: number): Promise<Produtos> {
+        return this.prisma.produtos.delete({
+            where: { id },
+        });
+    }
 }

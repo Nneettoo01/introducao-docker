@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Param, Put } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Put, Delete } from '@nestjs/common';
 import { ProdutoService } from './produto.service';
 import { CreateProdutoDto } from './dto/create-product.dto';
 import { ApiOperation } from '@nestjs/swagger';
@@ -32,5 +32,11 @@ export class ProdutoController {
     @Put(':id')
     updateProduct(@Param('id') id: number, @Body() data: UpdateProdutoDto) {
         return this.produtoService.update(id, data)
+    }
+
+    @ApiOperation({ summary: 'Deletar um produto por ID' })
+    @Delete(':id')
+    deleteProduct(@Param('id') id: number) {
+        return this.produtoService.delete(id)
     }
 }

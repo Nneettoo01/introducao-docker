@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, IsString } from "class-validator";
+import { Categoria } from "@prisma/client";
+import { IsEnum, IsNumber, IsString } from "class-validator";
 
 export class CreateProdutoDto {
     @ApiProperty({ example: 'Detergente', description: 'Nome do produto' })
@@ -15,6 +16,6 @@ export class CreateProdutoDto {
     price: number;
 
     @ApiProperty({ example: 'Limpeza', description: 'Categoria do produto' })
-    @IsString()
-    category: string;
+    @IsEnum(Categoria)
+    category: Categoria
 }
