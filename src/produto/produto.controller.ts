@@ -1,7 +1,7 @@
 import { Controller, Post, Body, Get, Param, Put, Delete } from '@nestjs/common';
 import { ProdutoService } from './produto.service';
 import { CreateProdutoDto } from './dto/create-product.dto';
-import { ApiOperation } from '@nestjs/swagger';
+import { ApiBody, ApiConsumes, ApiOperation } from '@nestjs/swagger';
 import { UpdateProdutoDto } from './dto/update-product.dto';
 @Controller('product')
 export class ProdutoController {
@@ -10,8 +10,8 @@ export class ProdutoController {
         private readonly produtoService: ProdutoService,
     ) { }
 
-    @ApiOperation({ summary: 'Criar um novo produto' })
     @Post('create')
+    @ApiOperation({ summary: 'Criar um novo produto' })
     createProduct(@Body() data: CreateProdutoDto) {
         return this.produtoService.create(data);
     }
