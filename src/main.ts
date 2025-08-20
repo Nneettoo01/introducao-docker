@@ -6,7 +6,7 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Configurações da documentação Swagger
+  // Configurações da documentação Swagger //
   const config = new DocumentBuilder()
     .setTitle('API de Produtos')
     .setDescription('Documentação da API de produtos com NestJS + Prisma + Swagger')
@@ -14,7 +14,7 @@ async function bootstrap() {
     .addTag('products')
     .build();
 
-  // Configuração do ValidationPipe para validação de DTOs
+  // Configuração do ValidationPipe para validação de DTOs //
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
     forbidNonWhitelisted: true,

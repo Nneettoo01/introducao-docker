@@ -12,6 +12,20 @@ export class ProdutoController {
 
     @Post('create')
     @ApiOperation({ summary: 'Criar um novo produto' })
+    @ApiConsumes('multipart/form-data')
+    @ApiBody({
+        description: 'Formulário para cadastrar o produto',
+        schema: {
+            type: 'object',
+            required: ['name', 'description', 'price', 'category'],
+            properties: {
+                name: { type: 'string', example: 'Notebook' },
+                description: { type: 'string', example: 'Computador de uso pessoal' },
+                price: { type: 'number', example: 3000 },
+                category: { type: 'string', enum: ['LIMPEZA', 'BEBIDAS', 'ELETRONICO', 'ROUPA', 'ALIMENTO'] },
+            },
+        },
+    })
     createProduct(@Body() data: CreateProdutoDto) {
         return this.produtoService.create(data);
     }

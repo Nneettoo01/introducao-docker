@@ -24,7 +24,9 @@ model Produtos {
 }
 
 enum Categoria {
-  ELETRONICOS
-  ROUPAS
-  ALIMENTOS
+  LIMPEZA
+  BEBIDAS
+  ELETRONICO
+  ROUPA
+  ALIMENTO
 }
