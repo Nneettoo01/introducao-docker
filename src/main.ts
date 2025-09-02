@@ -12,6 +12,13 @@ async function bootstrap() {
     .setDescription('Documentação da API de produtos com NestJS + Prisma + Swagger')
     .setVersion('1.0')
     .addTag('products')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'Authorization',
+      in: 'header',
+    })
     .build();
 
   // Configuração do ValidationPipe para validação de DTOs //

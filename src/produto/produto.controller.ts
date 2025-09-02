@@ -6,7 +6,7 @@ import { UpdateProdutoDto } from './dto/update-produto.dto';
 import { JwtAuthGuard } from 'src/auth/jwt.guard';
 import { AdminGuard } from 'src/auth/admin.guard';
 
-// @UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard)
 @Controller('product')
 export class ProdutoController {
 
